@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Outpass Dashboard</title>
+</head>
+<body>
+<h2>Approved Outpasses</h2>
+<table border="1">
+    <tr>
+        <th>ID</th><th>Name</th><th>Roll</th><th>Branch</th><th>Print</th>
+    </tr>
+    {% for row in outpasses %}
+    <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[4] }}</td>
+        <td><a href="/print/{{ row[0] }}" target="_blank">Print</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="/logout">Logout</a>
+</body>
+</html>

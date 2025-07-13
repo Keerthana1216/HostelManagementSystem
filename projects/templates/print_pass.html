@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gate Pass Print</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        .slip { border: 2px solid black; padding: 20px; margin-bottom: 30px; }
+        h2 { text-align: center; }
+        table { width: 100%; }
+        td { padding: 5px; }
+        @media print {
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print" style="text-align:center;">
+        <button onclick="window.print()">🖨️ Print 2 Copies</button>
+    </div>
+
+    {% for i in range(2) %}
+    <div class="slip">
+        <h2>GRACE COLLEGE OF ENGINEERING<br>THOOTHUKUDI – 05<br>HOSTELLER GATE PASS</h2>
+        <p style="text-align:right;"><strong>STUDENT COPY</strong></p>
+        <table>
+            <tr><td>Student Name:</td><td>{{ data[1] }}</td><td>Branch:</td><td>{{ data[4] }}</td></tr>
+            <tr><td>Reg. No:</td><td>{{ data[2] }}</td><td>Room No:</td><td>{{ data[5] }}</td></tr>
+            <tr><td>Year & Semester:</td><td>{{ data[3] }}</td><td>Address of Visit:</td><td>{{ data[6] }}</td></tr>
+            <tr><td>Reason:</td><td colspan="3">{{ data[7] }}</td></tr>
+            <tr><td>Leaving Date:</td><td>{{ data[8] }}</td><td>Return Date:</td><td>{{ data[9] }}</td></tr>
+            <tr><td>Leaving Time:</td><td>{{ data[10] }}</td><td>Return Time:</td><td>{{ data[11] }}</td></tr>
+            <tr><td>Student Phone No:</td><td>{{ data[12] }}</td><td>Parent Phone No:</td><td>{{ data[13] }}</td></tr>
+        </table>
+        <br>
+        <p>Student Signature: ____________________</p>
+        <p>Class Advisor: _______ &nbsp;&nbsp;&nbsp; HOD: _______ &nbsp;&nbsp;&nbsp; PRINCIPAL: _______</p>
+        <p>Residential Tutor Remarks: {{ data[14] or '______________________' }}</p>
+        <p>Security Signature: ____________ Date In: ______ Time In: ______</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
